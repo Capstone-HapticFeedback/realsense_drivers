@@ -10,7 +10,7 @@ Copyright(c) 2014-2015 Intel Corporation. All Rights Reserved.
 
 #pragma once
 
-#include "DSAPITypes.h"
+#include <r200_driver/DSAPI/DSAPITypes.h>
 
 /// @defgroup Image Conversion Functions
 /// For all image conversion functions, the parameters have the following meaning:

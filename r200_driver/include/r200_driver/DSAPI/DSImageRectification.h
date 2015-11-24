@@ -10,8 +10,8 @@ Copyright(c) 2014-2015 Intel Corporation. All Rights Reserved.
 
 #pragma once
 
-#include "DSAPITypes.h"
-#include "DSCalibRectParameters.h"
+#include <r200_driver/DSAPI/DSAPITypes.h>
+#include <r200_driver/DSAPI/DSCalibRectParameters.h>
 
 /// @defgroup Image Rectification Functions
 /// Image rectification done in software. Given a set of calibration/rectification parameters, first build a table. Then re-use the table for each

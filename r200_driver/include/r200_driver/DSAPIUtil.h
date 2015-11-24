@@ -11,8 +11,8 @@ Copyright(c) 2014-2015 Intel Corporation. All Rights Reserved.
 #pragma once
 
 // Include all utility function headers
-#include "DSAPI/DSCalibRectParametersUtil.h"
-#include "DSAPI/DSImageConversion.h"
-#include "DSAPI/DSImageRectification.h"
-#include "DSAPI/DSUnitConversion.h"
-#include "DSAPI/DSDepthControlParametersUtil.h"
+#include <r200_driver/DSAPI/DSCalibRectParametersUtil.h>
+#include <r200_driver/DSAPI/DSImageConversion.h>
+#include <r200_driver/DSAPI/DSImageRectification.h>
+#include <r200_driver/DSAPI/DSUnitConversion.h>
+#include <r200_driver/DSAPI/DSDepthControlParametersUtil.h>

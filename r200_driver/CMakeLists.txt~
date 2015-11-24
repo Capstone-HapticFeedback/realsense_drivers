@@ -51,18 +51,13 @@ include_directories(
 # )
 
 ## Declare a cpp executable
-DSInteractiveCaptureGL.cpp  DSSimpleCaptureGL.cpp
 add_executable(interactive_capture src/samples/DSInteractiveCaptureGL.cpp)
 add_executable(simple_capture src/samples/DSSimpleCaptureGL.cpp)
 
-## Add cmake target dependencies of the executable/library
-## as an example, message headers may need to be generated before nodes
-# add_dependencies(r200_driver_node r200_driver_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(r200_driver_node
-#   ${catkin_LIBRARIES}
-# )
+target_link_libraries(interactive_capture ${catkin_LIBRARIES})
+target_link_libraries(simple_capture ${catkin_LIBRARIES})
 
 #############
 ## Install ##

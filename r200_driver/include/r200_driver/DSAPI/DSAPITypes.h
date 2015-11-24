@@ -9,7 +9,7 @@ Copyright(c) 2014-2015 Intel Corporation. All Rights Reserved.
 *******************************************************************************/
 
 #pragma once
-
+#include <stdint.h>
 #include <cstdint> // For standard sized integer types
 #include <climits> // For int limits
 

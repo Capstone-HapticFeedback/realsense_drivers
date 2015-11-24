@@ -10,8 +10,8 @@ Copyright(c) 2014-2015 Intel Corporation. All Rights Reserved.
 
 #pragma once
 
-#include "DSAPITypes.h"
-#include "DSCalibRectParameters.h"
+#include <r200_driver/DSAPI/DSAPITypes.h>
+#include <r200_driver/DSAPI/DSCalibRectParameters.h>
 
 /// @class DSThird
 /// Defines methods specific to an implementation that has a third camera. "Third" refers to a color camera that is part of the

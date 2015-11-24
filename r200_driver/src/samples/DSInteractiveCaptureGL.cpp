@@ -16,6 +16,7 @@ Copyright(c) 2014-2015 Intel Corporation. All Rights Reserved.
 #include <string>
 #include <memory>
 #include <map>
+#include <stdio.h>
 
 #ifndef _WIN32
 #include <stdalign.h>

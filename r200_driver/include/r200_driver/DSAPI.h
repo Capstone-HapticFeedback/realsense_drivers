@@ -11,20 +11,20 @@ Copyright(c) 2014-2015 Intel Corporation. All Rights Reserved.
 #pragma once
 
 // Defines global data types, typedefs, and constants.
-#include "DSAPI/DSAPITypes.h"
+#include <r200_driver/DSAPI/DSAPITypes.h>
 
 // Includes definition of calibration struct
-#include "DSAPI/DSCalibRectParameters.h"
+#include <r200_driver/DSAPI/DSCalibRectParameters.h>
 
 // Include the other interface classes in this header file as well.
-#include "DSAPI/DSHardware.h"
-#include "DSAPI/DSFile.h"
-#include "DSAPI/DSThird.h"
-#include "DSAPI/DSEmitter.h"
-#include "DSAPI/DSPlatformCamera.h"
+#include <r200_driver/DSAPI/DSHardware.h>
+#include <r200_driver/DSAPI/DSFile.h>
+#include <r200_driver/DSAPI/DSThird.h>
+#include <r200_driver/DSAPI/DSEmitter.h>
+#include <r200_driver/DSAPI/DSPlatformCamera.h>
 
 // Include the factory interface.
-#include "DSAPI/DSFactory.h"
+#include <r200_driver/DSAPI/DSFactory.h>
 
 /// @class DSAPI
 /// Defines common interface used in all implementations.
