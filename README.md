@@ -1,3 +1,5 @@
-# realsense_r200_driver
+# realsense_drivers
 Driver and sample applications for the real sense cameras
+
+Look into each package for installation instructions.
 
