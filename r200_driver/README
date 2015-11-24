@@ -1,0 +1,77 @@
+
+1. Update UVC driver if you have not done so by running "sudo ./patch_ubuntu_uvc.sh" in "tyzx-uvcdriver/scripts/" directory. 
+You need to have a version of UVC driver installed and internet connection on your system before running "./patch_ubuntu_uvc.sh".
+
+2. gcc 4.9.1 or later version is required. The binaries are built with gcc 4.9.1 on Ubuntu 14.04 LTS.
+
+3. Install g++:
+
+	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+	sudo apt-get update
+	sudo apt-get install g++-4.9
+
+4. Install libpng-1.6.16
+	http://sourceforge.net/projects/libpng/files/libpng16/older-releases/1.6.16/libpng-1.6.16.tar.gz/download
+
+	Extract and in the package directory run the following:
+
+			./configure [--prefix=/path]
+    			make check
+    			make install 
+5 In the console run "ldconfig" Dynamic Linker Run Time Bindings
+	sudo ldconfig
+
+6. If using a VM in windows 7, install the following USB3 driver on the windows host:
+https://downloadcenter.intel.com/download/22824/USB-3-0-Driver-Intel-USB-3-0-eXtensible-Host-Controller-Driver-for-Intel-8-9-100-Series-and-C220-C610-Chipset-Family?cmd=displayKC&externalId=2128105
+
+	The windows host might have to be rebooted a couple of times in order for the installation to complete.
+
+7. Following libraries are required on the target system: 
+
+	linux-vdso.so.1
+	libglut.so.3
+	libGL.so.1
+	librt.so.1
+	libstdc++.so.6
+	libm.so.6
+	libgcc_s.so.1
+	libc.so.6
+	libpthread.so.0
+	libpng16.so.16
+	libz.so.1
+	libapr-1.so.0
+	libaprutil-1.so.0
+	liblog4cxx.so.10
+	libX11.so.6
+	libXi.so.6
+	libXxf86vm.so.1
+	libexpat.so.1
+	libglapi.so.0
+	libXext.so.6
+	libXdamage.so.1
+	libXfixes.so.3
+	libX11-xcb.so.1
+	libxcb-glx.so.0
+	libxcb-dri2.so.0
+	libxcb-dri3.so.0
+	libxcb-present.so.0
+	libxcb-sync.so.1
+	libxcb.so.1
+	libxshmfence.so.1
+	libdrm.so.2
+	libdl.so.2
+	libuuid.so.1
+	libcrypt.so.1
+	libXau.so.6
+	libXdmcp.so.6
+	(You might need to install any other dependent libraries such as GLIBCXX if it's not on your system.)
+	
+8. Copy "r200_driver/lib/libDSAPI.so" to "/usr/lib" or add "r200_driver/lib/" to "LD_LIBRARY_PATH".
+
+9. Use the "r200_driver/bin/FirmwareUpdate" tool in the "bin" directory to update the firmware.
+
+10. Run the executables in the "r200_driver/Bin" directory after connecting the r200 camera cable to the USB3 port in your machine.
+
+11. Create applications with DSAPI by referring to the samples in the "r200_driver/src/samples" directory.
+
+

@@ -1,0 +1,52 @@
+DS4 driver
+=================
+
+* DS4 driver is based on the built in Usb Video Class (UVC) driver built in to linux kernel with small required modifications.
+* The driver binary name is uvcvideo.ko
+* The official Linux UVC documentation is at http://www.ideasonboard.org/uvc/
+* The original source is located under the source/drivers/media/usb/uvc dir under the linux kernel tree.
+* There are 3 total patches required for ds4. The patches can be categorized into 2 categories:
+  1) DS4 specific changes - 1 patch
+  2) Required fixes - 2 patches. Those were submitted upstream. They might be already applied to a given kernel
+
+Scripts
+================
+
+The patch_ubuntu_uvc.sh script automates downloading ubuntu kernel sources (for the running kernel),
+applying patches, and compiling the patched uvc module.
+
+1) Creates a ~/uvc_patch directory
+2) Downloads the kernel sources for the running kernel
+3) Applies the ds4 patches located in patches subdir
+4) Configures the kernel
+5) Compiles the uvc module under drivers/media/usb/uvc/
+
+For every specific kernel, slightly different patches might be required,
+therefore under the patches dir there are folders containing patches for different running kernels.
+Under gmin - are the patches that got merged to gmin Android kernel.
+
+Please create a symbolic link for your running kernel before running the script:
+
+$ cd patches
+$ ln -s gmin `uname -r`
+$ ls -la
+3.13.0-38-generic
+*3.13.0-49-generic -> gmin*
+gmin
+
+
+New Pixel Formats:
+===================
+
+Those new pixel formats are exposed by the new driver:
++#define V4L2_PIX_FMT_Y8I      v4l2_fourcc('Y', '8', 'I', ' ') /* Greyscale 8-bit L/R interleaved */
++#define V4L2_PIX_FMT_Y12I     v4l2_fourcc('Y', '1', '2', 'I') /* Greyscale 12-bit L/R interleaved */
++#define V4L2_PIX_FMT_Z16      v4l2_fourcc('Z', '1', '6', ' ') /* Depth data 16-bit */
+
++   /* 10bit raw bayer packed, 5 bytes for every 4 pixels */
++#define V4L2_PIX_FMT_SBGGR10P v4l2_fourcc('p', 'B', 'A', 'A')
++#define V4L2_PIX_FMT_SGBRG10P v4l2_fourcc('p', 'G', 'A', 'A')
++#define V4L2_PIX_FMT_SGRBG10P v4l2_fourcc('p', 'g', 'A', 'A')
++#define V4L2_PIX_FMT_SRGGB10P v4l2_fourcc('p', 'R', 'A', 'A')
+
+
