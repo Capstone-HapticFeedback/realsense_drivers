@@ -13,6 +13,8 @@
   <run_depend>roscpp</run_depend>
   <run_depend>sensor_msgs</run_depend>
   <run_depend>DSAPI</run_depend>
+  <run_depend>OpenGL</run_depend>
+  <run_depend>GLUT</run_depend>
 
   <export>
   </export>

@@ -13,8 +13,13 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
 )
 
+find_package(OpenGL REQUIRED)
+find_package(GLUT REQUIRED)
+
 # find_package(Boost REQUIRED COMPONENTS system)
 # catkin_python_setup()
+
+set(DSAPI_BINARY_PATH "${CMAKE_CURRENT_SOURCE_DIR}/lib/libDSAPI.so")
 
 ################################################
 ## Declare ROS messages, services and actions ##
@@ -33,8 +38,8 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES r200_driver
-  CATKIN_DEPENDS roscpp sensor_msgs
-  DEPENDS DSAPI
+  CATKIN_DEPENDS roscpp sensor_msgs OpenGL
+  DEPENDS glut
 )
 
 ###########
@@ -47,66 +52,23 @@ catkin_package(
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
+  ${OPENGL_INCLUDE_DIRS}
+  ${GLUT_INCLUDE_DIRS}
 )
-
-## Declare a cpp library
-# add_library(r200_driver
-#   src/${PROJECT_NAME}/r200_driver.cpp
-# )
 
 ## Declare a cpp executable
 add_executable(interactive_capture src/samples/DSInteractiveCaptureGL.cpp)
 add_executable(simple_capture src/samples/DSSimpleCaptureGL.cpp)
 
-
 ## Specify libraries to link a library or executable target against
-target_link_libraries(interactive_capture ${catkin_LIBRARIES})
-target_link_libraries(simple_capture ${catkin_LIBRARIES})
+target_link_libraries(interactive_capture ${catkin_LIBRARIES} ${DSAPI_BINARY_PATH} ${OPENGL_LIBRARIES} ${GLUT_LIBRARY})
+target_link_libraries(simple_capture ${catkin_LIBRARIES} ${DSAPI_BINARY_PATH} ${OPENGL_LIBRARIES} ${GLUT_LIBRARY})
 
 #############
 ## Install ##
 #############
 
-# all install targets should use catkin DESTINATION variables
-# See http://ros.org/doc/api/catkin/html/adv_user_guide/variables.html
-
-## Mark executable scripts (Python etc.) for installation
-## in contrast to setup.py, you can choose the destination
-# install(PROGRAMS
-#   scripts/my_python_script
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
-
-## Mark executables and/or libraries for installation
-# install(TARGETS r200_driver r200_driver_node
-#   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
-
-## Mark cpp header files for installation
-# install(DIRECTORY include/${PROJECT_NAME}/
-#   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-#   FILES_MATCHING PATTERN "*.h"
-#   PATTERN ".svn" EXCLUDE
-# )
-
-## Mark other files for installation (e.g. launch and bag files, etc.)
-# install(FILES
-#   # myfile1
-#   # myfile2
-#   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-# )
-
 #############
 ## Testing ##
 #############
 
-## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_r200_driver.cpp)
-# if(TARGET ${PROJECT_NAME}-test)
-#   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
-# endif()
-
-## Add folders to be run by python nosetests
-# catkin_add_nosetests(test)
