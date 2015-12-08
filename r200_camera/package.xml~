@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+  <name>r200_camera</name>
+  <version>0.0.0</version>
+  <description>The r200_driver package</description>
+  <maintainer email="jrgnichodevel@gmail.com"></maintainer>
+  <license>TODO</license>
+  <author email="jrgnichodevel@gmail.com">Jorge Nicho</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>roslib<build_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>OpenGL</run_depend>
+  <run_depend>GLUT</run_depend>
+  <run_depend>glfw3</run_depend>
+
+  <export>
+  </export>
+</package>
